@@ -21,27 +21,27 @@ This work is derived from https://randomnerdtutorials.com/esp32-ota-over-the-air
 
 ## Target 
 
-- CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
-- PLATFORM: Espressif 32 (5.3.0) > Espressif ESP32 Dev Module
-- HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+[env:nodemcuv2]
+platform = espressif8266
+board = nodemcuv2
+framework = arduino
 
 ## Library dependencies
 
-- me-no-dev/ESPAsyncTCP@^1.2.2
 - me-no-dev/ESP Async WebServer@^1.2.3
 - ayushsharma82/AsyncElegantOTA@^2.2.7
+- me-no-dev/ESPAsyncTCP@^1.2.2
+
 
 # Private Data
 
 There should be a file `private_data.h` be placed in the `inlcude` folder cotaining your private credentials:
 
 ```
-#undef myOTAUSER
-#undef myOTAPASSWORD
-#undef mySSID
-#undef myPASSWORD
-#define myOTAUSER "theOTAuser"
-#define myOTAPASSWORD "theOTApassword"
-#define mySSID "theSSID"
-#define myPASSWORD "theSSIDpassword"
+const char *OTAUSER = "the OTA user";
+const char *OTAPASSWORD = "the OTA password";
+
+// WiFi Server stuff and WiFi logon Credentials
+const char *SSID = "the WIFI SSID";
+const char *PASSWORD = "the WIFI password";
 ```
